@@ -1,0 +1,35 @@
+<div class="container">
+  <div>
+    <h4 class="text-center"> Users List</h4>
+    <button type="button" class="btn btn-primary float-right mb-1" routerLink="../register">Add User</button>
+  </div>
+  <div class="input-group mb-3 mt-3">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search" />
+    <div class="input-group-append mb-1">
+      <button class="btn btn-primary" type="button" (click)="getUsers()">
+        Search
+      </button>
+    </div>
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+          <th scope="col">User Type</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of Users">
+          <td> {{ user.email }} </td>
+          <td> {{ user.name }} </td>
+          <td> {{ user.type }} </td>
+          <td>
+            <button class="btn btn-sm"><i class="fa fa-pencil" (click)="onEdit(user.id)"></i></button>
+            <button class="btn btn-sm"><i class="fa fa-trash" (click)="onDelete(user.id)"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

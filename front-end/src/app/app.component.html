@@ -1,0 +1,19 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand"></a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="isLoggedIn$ | async">
+        <a routerLink="./current-user" class="nav-link">User detail</a>
+      </li>
+      <li class="nav-item" *ngIf="isadminloggedIn$ | async">
+        <a routerLink="./user" class="nav-link">Users</a>
+      </li>
+    </div>
+
+    <button (click)="logout()" *ngIf="isLoggedIn$ | async" class="btn btn-danger">Logout</button>
+
+  </nav>
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
